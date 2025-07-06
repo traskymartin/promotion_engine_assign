@@ -4,7 +4,7 @@ public class CartItem {
     private char sku;
     private int quantity;
 
-    public CartItem(int quantity, char sku) {
+    public CartItem(char sku,int quantity) {
         this.quantity = quantity;
         this.sku = sku;
     }
