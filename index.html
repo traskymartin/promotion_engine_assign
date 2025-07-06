@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Promotion Engine Documentation</title>
+    <title>Promotion Engine Demo</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-        h1 { color: #2c3e50; }
-        code { background: #f4f4f4; padding: 2px 5px; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        .output { margin-top: 30px; background: #e8f4f8; padding: 15px; border-left: 4px solid #3498db; }
     </style>
 </head>
 <body>
-    <h1>🚀 Promotion Engine (Java)</h1>
-    <p>This project implements a shopping cart promotion engine with discounts.</p>
+    <h1>🛒 Promotion Engine Demo</h1>
     
-    <h2>📦 Features</h2>
-    <ul>
-        <li>3 types of promotions: Bulk discounts, combo offers, and quantity-based pricing</li>
-        <li>Tested with JUnit</li>
-    </ul>
+    <h2>Test Scenarios</h2>
+    <p>The following test cases were run:</p>
+    
+    <pre>
+    Scenario A: 1 × A, 1 × B, 1 × C
+    Scenario B: 5 × A, 5 × B, 1 × C
+    Scenario C: 3 × A, 5 × B, 1 × C, 1 × D
+    </pre>
 
-    <h2>📜 Example Usage</h2>
-    <pre><code>
-List&lt;CartItem&gt; items = Arrays.asList(
-    new CartItem('A', 3),
-    new CartItem('B', 2)
-);
-int total = new PromotionEngine().applyPromotions(items);
-    </code></pre>
+    <div class="output">
+        <h2>📊 Results</h2>
+        <div id="output-content">
+            <!-- This will be populated by JavaScript -->
+            Loading results...
+        </div>
+    </div>
 
-    <h2>🔗 Links</h2>
-    <ul>
-        <li><a href="https://github.com/traskymartin/promotion_engine_assign">GitHub Repository</a></li>
-        <li><a href="https://github.com/traskymartin/promotion_engine_assign/blob/main/README.md">README</a></li>
-    </ul>
+    <script>
+        // Fetch the output.txt file
+        fetch('output.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('output-content').innerHTML = 
+                    '<pre>' + data + '</pre>';
+            })
+            .catch(error => {
+                document.getElementById('output-content').innerHTML = 
+                    'Error loading results: ' + error;
+            });
+    </script>
+
+    <footer>
+        <p>View source code on <a href="https://github.com/traskymartin/promotion_engine_assign">GitHub</a></p>
+    </footer>
 </body>
 </html>
